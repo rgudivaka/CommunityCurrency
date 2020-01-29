@@ -26,6 +26,7 @@ This user account will give full access to your account in terms of creating, ed
 7. Press "Next" through "Tags" and "Review" and press "Create User."
 8. On the confirmation page, copy the Access Key ID and the Secret Access Key to some sort of document for safe keeping. It would also be a good place to store the username, the password, and the console login link (see below):
     - To get the console sign-on link, navigate back to the main IAM console page, navigate to users and then to the specific user you want the sign-on link for. Change to the "Security Credentials" link and you should a "Console sign-on link" in the summary.
+    - **DO NOT SAVE KEYS OR PASSWORDS IN THIS REPOSITORY**
     
     
 Now that you've completed creating the admin account, you can choose to keep it to yourself, or distribute the information to the lead developer(s) of the project.
@@ -49,6 +50,7 @@ This user account will give some, but not all access to your account in terms of
 7. Press "Next" through "Tags" and "Review" and press "Create User."
 8. On the confirmation page, copy the Access Key ID and the Secret Access Key to some sort of document for safe keeping. It would also be a good place to store the username, the password, and the console login link (see below):
     - To get the console sign-on link, navigate back to the main IAM console page, navigate to users and then to the specific user you want the sign-on link for. Change to the "Security Credentials" link and you should a "Console sign-on link" in the summary.
+    - **DO NOT SAVE KEYS OR PASSWORDS IN THIS REPOSITORY**
     
     
 Now that you've completed creating the admin account, you can choose to keep it to yourself, or distribute the information to the developer(s) of the project.
