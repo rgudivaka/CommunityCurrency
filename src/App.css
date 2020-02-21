@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  max-width: 100%;
+  max-height: auto;
+}
+
+.login{
+  color: "blue"
+}
+
+
