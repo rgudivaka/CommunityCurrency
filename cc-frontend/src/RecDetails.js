@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecDetailsChart from './RecDetailsChart'
+import RecDetailsDateFilter from './RecDetailsDateFilter'
 
 export default class RecDetails extends Component {
     constructor(props){
@@ -45,7 +46,8 @@ export default class RecDetails extends Component {
     const { dimensions } = this.state;
     if (this.state.display)
         return (
-        <div ref={this.containerRef} style={{width:"700px", height:"500px"}}>
+        <div className="rec-details" ref={this.containerRef} style={{width:"700px", height:"500px"}}>
+            <RecDetailsDateFilter />
             <RecDetailsChart dimensions={dimensions} data={this.getData()}/>
         </div>
         );

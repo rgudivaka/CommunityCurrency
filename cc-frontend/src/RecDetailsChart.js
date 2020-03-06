@@ -36,7 +36,7 @@ class RecDetailsChart extends Component {
         console.log(this.state);
         return (
         <div className="ReceptacleChart">
-            <XYPlot height={this.state.height} width={this.state.width} margin={100}>
+            <XYPlot height={this.state.height} width={this.state.width} margin={{left: 50, bottom: 100}}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
                 <XAxis title="Datetime"  tickFormat={v => {
