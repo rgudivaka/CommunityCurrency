@@ -5,7 +5,7 @@ export default class Header extends Component {
     render(){
         return (
             <div className="header">
-                <img id="hlogo" src={Logo2} alt="Community Currency Logo"/>
+            <img id="hlogo" src={Logo2}/>
             </div>
         )
     }
