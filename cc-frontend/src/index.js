@@ -8,7 +8,7 @@ import firebase from "firebase"
 import CommunityCurrencyAPI from './Shared/CommunityCurrencyAPI'
 
 firebase.initializeApp({
-    apiKey: 'AIzaSyApw4L5iwlszilUbBVppO-U7EWJCVtWfjQ',
+    
     projectId: 'communitycurrency-109db'
   });
 
