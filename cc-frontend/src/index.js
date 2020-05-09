@@ -13,15 +13,29 @@ firebase.initializeApp({
   });
 
 const api = new CommunityCurrencyAPI(firebase.functions());
-api.boxData({}).then(function(result){
+
+
+api.updateChartData({id: 0}).then(function(result){
     console.log(result);
 });
-api.boxData({}).then(function(result){
+
+api.updateChartData({id: 1}).then(function(result){
     console.log(result);
 });
-api.boxData({}).then(function(result){
+
+api.updateChartData({id: 2}).then(function(result){
     console.log(result);
 });
+
+api.boxData({id: 1}).then(function(result){
+    console.log(result);
+});
+
+api.chartData({id: 0}).then(function(result){
+    console.log(result);
+})
+
+
 //Render function
 ReactDOM.render(<Dashboard />, document.getElementById("root"));
 
