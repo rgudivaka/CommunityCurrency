@@ -1,0 +1,43 @@
+input[type=text]{
+  width: 50%;
+  height: 40px;
+  box-sizing: border-box;
+  border: 3px solid #87ceeb;
+  border-radius: 5px;
+  margin-bottom: 4%;
+  margin-right: 10%;
+}
+#InputNum{
+  margin-left: 2%;
+  padding-right: 5%;
+  font-family: serif;
+
+}
+#InputEmail{
+  margin-left: 6%;
+  padding-right: 5%;
+  font-family: serif;
+
+}
+#title{
+
+  font-family: serif;
+}
+#saveBtn{
+  padding: 10px 20px;
+  margin-top: 2%;
+  font-family: serif;
+  font-size: 20px;
+  align-content: center;
+}
+label{
+  padding-bottom: 20%;
+}
+p{
+  font-family: serif;
+  padding-left: 75%;
+  font-size: 16px;
+}
+#YesRadio{
+  padding-right: 3%;
+}
