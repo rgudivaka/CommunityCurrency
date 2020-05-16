@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Dashboard from "./Components/Dashboard";
+import Controller from "./Components/Controller";
 
 //Render function
-ReactDOM.render(<Dashboard />, document.getElementById("root"));
+ReactDOM.render(<Controller />, document.getElementById("root"));
 
 serviceWorker.unregister();

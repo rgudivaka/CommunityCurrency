@@ -12,7 +12,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import cc_logo from "../cc_logo.png";
 import Button from "@material-ui/core/Button";
 import { Link, Route } from "react-router-dom";
-import Home from "./Home";
+
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -75,7 +75,7 @@ function App(props) {
           />
         </Grid>
         <Grid item>
-          <Link to={"/Home"}>
+          <Link to="/dashboard">
             <LoginButton variant="contained" color="primary">
               Login
             </LoginButton>
@@ -85,7 +85,6 @@ function App(props) {
           <ForgotButton variant="text">Forgot Username/Password?</ForgotButton>
         </Grid>
       </Grid>
-      <Route path={"/Home"} component={Home} />
     </div>
   );
 }
