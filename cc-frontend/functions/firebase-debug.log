@@ -1,0 +1,106 @@
+[debug] [2020-05-02T21:15:28.650Z] ----------------------------------------------------------------------
+[debug] [2020-05-02T21:15:28.652Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2020-05-02T21:15:28.653Z] CLI Version:   8.1.0
+[debug] [2020-05-02T21:15:28.653Z] Platform:      win32
+[debug] [2020-05-02T21:15:28.653Z] Node Version:  v12.16.1
+[debug] [2020-05-02T21:15:28.654Z] Time:          Sat May 02 2020 16:15:28 GMT-0500 (Central Daylight Time)
+[debug] [2020-05-02T21:15:28.654Z] ----------------------------------------------------------------------
+[debug] [2020-05-02T21:15:28.654Z] 
+[debug] [2020-05-02T21:15:28.663Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-02T21:15:28.664Z] > authorizing via signed-in user
+[debug] [2020-05-02T21:15:28.664Z] [iam] checking project communitycurrency-109db for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-05-02T21:15:28.667Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/communitycurrency-109db:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-05-02T21:15:28.867Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 02 May 2020 21:15:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=52","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-02T21:15:28.868Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/communitycurrency-109db/serviceAccounts/communitycurrency-109db@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-05-02T21:15:29.190Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 02 May 2020 21:15:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'communitycurrency-109db'...
+[info] 
+[info] i  deploying functions
+[debug] [2020-05-02T21:15:32.127Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.10.0",
+    "firebase-functions": "^3.6.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2020-05-02T21:15:32.232Z] Error: ENOENT: no such file or directory, stat 'functions\package.json'
+    at Object.statSync (fs.js:932:3)
+    at Object.load (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cjson\index.js:200:12)
+    at getRuntimeChoice (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\parseRuntimeAndValidateSDK.js:55:26)
+    at module.exports (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:26:29)
+    at _chain (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:22:40)
+    at C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:63:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-05-02T21:15:54.378Z] ----------------------------------------------------------------------
+[debug] [2020-05-02T21:15:54.380Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:chartData
+[debug] [2020-05-02T21:15:54.380Z] CLI Version:   8.1.0
+[debug] [2020-05-02T21:15:54.380Z] Platform:      win32
+[debug] [2020-05-02T21:15:54.381Z] Node Version:  v12.16.1
+[debug] [2020-05-02T21:15:54.382Z] Time:          Sat May 02 2020 16:15:54 GMT-0500 (Central Daylight Time)
+[debug] [2020-05-02T21:15:54.382Z] ----------------------------------------------------------------------
+[debug] [2020-05-02T21:15:54.382Z] 
+[debug] [2020-05-02T21:15:54.391Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-02T21:15:54.391Z] > authorizing via signed-in user
+[debug] [2020-05-02T21:15:54.391Z] [iam] checking project communitycurrency-109db for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-05-02T21:15:54.395Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/communitycurrency-109db:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-05-02T21:15:54.530Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 02 May 2020 21:15:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=47","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-02T21:15:54.532Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/communitycurrency-109db/serviceAccounts/communitycurrency-109db@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-05-02T21:15:54.788Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 02 May 2020 21:15:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'communitycurrency-109db'...
+[info] 
+[info] i  deploying functions
+[debug] [2020-05-02T21:15:57.582Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.10.0",
+    "firebase-functions": "^3.6.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2020-05-02T21:15:57.687Z] Error: ENOENT: no such file or directory, stat 'functions\package.json'
+    at Object.statSync (fs.js:932:3)
+    at Object.load (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cjson\index.js:200:12)
+    at getRuntimeChoice (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\parseRuntimeAndValidateSDK.js:55:26)
+    at module.exports (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:26:29)
+    at _chain (C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:22:40)
+    at C:\Users\John's PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:63:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
