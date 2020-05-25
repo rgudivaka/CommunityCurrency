@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
+import cc_logo from "../cc_logo.png";
 
 function Copyright() {
   return (
@@ -115,6 +116,12 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  hlogo: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'contain',
+  },
 }));
 
 export default function Dashboard() {
@@ -157,6 +164,7 @@ export default function Dashboard() {
           >
             Dashboard
           </Typography>
+          <img className="hlogo" src={cc_logo}/>
           {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
