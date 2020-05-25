@@ -22,7 +22,7 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
-import cc_logo from "../cc_logo.png";
+import Logo from "./Logo";
 
 function Copyright() {
   return (
@@ -164,7 +164,7 @@ export default function Dashboard() {
           >
             Dashboard
           </Typography>
-          <img className="hlogo" src={cc_logo}/>
+          <Logo />
           {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
