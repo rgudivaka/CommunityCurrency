@@ -1,5 +1,4 @@
 import React from "react";
-import "./Login.css";
 import { makeStyles, styled } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -12,6 +11,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import cc_logo from "../cc_logo.png";
 import Button from "@material-ui/core/Button";
 import { Link, Route } from "react-router-dom";
+import GoogleBtn from './GoogleBtn'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -84,6 +84,9 @@ function App(props) {
         <Grid item>
           <ForgotButton variant="text">Forgot Username/Password?</ForgotButton>
         </Grid>
+        <Grid item>
+        <GoogleBtn></GoogleBtn>
+      </Grid>
       </Grid>
     </div>
   );
