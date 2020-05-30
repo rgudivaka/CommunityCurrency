@@ -1,29 +1,89 @@
-import React from "react";
+import React, { useState, useEffect} from 'react'
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { Link } from 'react-router-dom';
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import { Container, Grid, Box, CssBaseline, Drawer, AppBar, Toolbar, Typography, Divider, Paper, IconButton, List } from "@material-ui/core";
+import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon } from "@material-ui/icons";
+import Copyright from './Copyright';
 import { mainListItems, secondaryListItems } from "./listItems";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Orders";
-import Copyright from "./Copyright";
+import BoxDataChart from  './BoxDataChart';
 
+
+function CollectionBoxList(props) {
+  const cbList = props.boxInfoList.sort((item1, item2) => {
+    return item1.volume / item1.maxVolume < item2.volume / item2.maxVolume ? 1 : -1;
+  }).map((boxInfo) => <CollectionBox key={boxInfo.name} boxInfo={boxInfo} />);
+  return (
+    <Grid container spacing={3}>
+      {cbList}
+    </Grid>
+  );
+}
+
+function RGBtoString(r, g, b){
+  console.log("#" + r.toString(16) + g.toString(16) + b.toString(16));
+  var res = 256 * 256 * r + 256 * g + b;
+  var out = res.toString(16);
+  if (out.length === 5) {
+    out = "0" + out;
+  }
+  console.log(out);
+  return "#" + out;
+}
+
+function getColor(val, mx){
+  console.log(val);
+  console.log(mx);
+  var mid = mx / 2;
+  if (val > mid){
+    var diff = mx - mid;
+    return RGBtoString(255, Math.floor(255 - 255 * diff / mid), 0);
+  }
+  else {
+    return RGBtoString(Math.floor(255 - 255 * val / mid), 255, 0);
+  }
+}
+
+function CollectionBox(props) {
+  console.log(props.boxInfo)
+  const classes = useStyles();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  var fillPct = props.boxInfo.volume / props.boxInfo.maxVolume;
+
+  return (
+    <Grid item xs={12} md={8} lg={12}>
+      <Paper className={fixedHeightPaper} style={{
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 0,
+        paddingBottom: 0
+      }}>
+        <Grid container direction="row" style={{height:'100%'}}>
+          <Grid item xs={1}  zeroMinWidth noWrap>
+            <div style={{
+            backgroundColor: getColor(props.boxInfo.volume, props.boxInfo.maxVolume),
+            width: 20,
+            height: '100%'
+            }}>
+            </div>
+            </Grid>
+          <Grid item xs={4} zeroMinWidth style={{padding:20}}>
+            <Typography variant='h4' noWrap>{props.boxInfo.name}</Typography>
+            <Typography noWrap>{props.boxInfo.location}</Typography>
+            <Typography>Current Volume: {props.boxInfo.volume}</Typography>
+            <Typography>Max Volume: {props.boxInfo.maxVolume}</Typography>
+            <Typography>Fullness: %{(100 * props.boxInfo.volume / props.boxInfo.maxVolume).toFixed(2)}</Typography>
+          </Grid>
+          <Grid item xs={4} style={{width: '100%'}}>
+            <BoxDataChart data={props.boxInfo.chartData} />
+          </Grid>
+          
+        </Grid>
+      </Paper>
+      
+    </Grid>
+  );
+
+}
 
 const drawerWidth = 240;
 
@@ -106,7 +166,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+
+export default function CollectionBoxesPage(props) {
+  const [boxInfoList, setBoxInfoList] = useState([]);
+  useEffect(() => {
+    props.api.boxData({id: 1}).then(function(result){
+      setBoxInfoList(result.data);
+      console.log(result);
+    });
+  }, [])
+  
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -116,7 +185,6 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -144,7 +212,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Collection Boxes
           </Typography>
           {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -173,26 +241,7 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-          </Grid>
+          <CollectionBoxList boxInfoList={boxInfoList} />
           <Box pt={4}>
             <Copyright />
           </Box>

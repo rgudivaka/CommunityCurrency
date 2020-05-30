@@ -24,20 +24,7 @@ api.updateChartData({id: 1}).then(function(result){
     console.log(result);
 });
 
-api.updateChartData({id: 2}).then(function(result){
-    console.log(result);
-});
-
-api.boxData({id: 1}).then(function(result){
-    console.log(result);
-});
-
-api.chartData({id: 0}).then(function(result){
-    console.log(result);
-});
-
-
 //Render function
-ReactDOM.render(<Controller />, document.getElementById("root"));
+ReactDOM.render(<Controller api={api}/>, document.getElementById("root"));
 
 serviceWorker.unregister();
