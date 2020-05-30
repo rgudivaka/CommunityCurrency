@@ -24,6 +24,8 @@ api.updateChartData({id: 1}).then(function(result){
     console.log(result);
 });
 
+<<<<<<< HEAD
+=======
 api.updateChartData({id: 2}).then(function(result){
     console.log(result);
 });
@@ -38,7 +40,8 @@ api.chartData({id: 0}).then(function(result){
 
 
 
+>>>>>>> master
 //Render function
-ReactDOM.render(<Controller />, document.getElementById("root"));
+ReactDOM.render(<Controller api={api}/>, document.getElementById("root"));
 
 serviceWorker.unregister();
