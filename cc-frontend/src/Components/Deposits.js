@@ -19,16 +19,16 @@ export default function Deposits() {
   const [date, setDate] = useState(new Date());
   return (
     <React.Fragment>
-      <Title>Total Uncollected Deposits</Title>
+      <Title>Total Capacity</Title>
       <Typography component="p" variant="h4">
-        $3,024.00
+        80%
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
         as of {date.getMonth() + "/" + date.getDate() + "/" + date.getYear()}
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+          View Receptacles
         </Link>
       </div>
     </React.Fragment>
