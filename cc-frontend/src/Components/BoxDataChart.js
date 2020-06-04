@@ -11,29 +11,23 @@ import {
 import Title from "./Title";
 
 // Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
-}
 
-const data = [
-  createData("00:00", 0),
-  createData("03:00", 10),
-  createData("06:00", 20),
-  createData("09:00", 40),
-  createData("12:00", 80),
-  createData("15:00", 90),
-  createData("18:00", 45),
-  createData("21:00", 100),
-  createData("24:00", undefined),
-];
 
-export default function Chart() {
+export default function BoxDataChart(props) {
   const theme = useTheme();
-
+  var data = [];
+  var i = 0
+  
+  for (var key in props.data) {
+    if (i > Object.keys(props.data).length - 50)
+      data.push({item: i, volume: props.data[key].volume})
+      i+=1; 
+  }
+  console.log(data)
   return (
     <React.Fragment>
-      <Title>Today</Title>
-      <ResponsiveContainer>
+      <Title>Recent data</Title>
+      <ResponsiveContainer width="100%" height={200}>
         <LineChart
           data={data}
           margin={{
@@ -43,23 +37,19 @@ export default function Chart() {
             left: 24,
           }}
         >
-          <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-          <YAxis
-            stroke={theme.palette.text.secondary}
-            type="number"
-            domain={(0, 100)}
-          >
+          <XAxis dataKey="item" stroke={theme.palette.text.secondary} />
+          <YAxis stroke={theme.palette.text.secondary}>
             <Label
               angle={270}
               position="left"
               style={{ textAnchor: "middle", fill: theme.palette.text.primary }}
             >
-              Capacity (%)
+              Volume
             </Label>
           </YAxis>
           <Line
             type="monotone"
-            dataKey="amount"
+            dataKey="volume"
             stroke={theme.palette.primary.main}
             dot={false}
           />

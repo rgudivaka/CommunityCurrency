@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Login from './Login'
 import Settings from './Settings'
-import Dashboard from './Dashboard'
+import Dashboard from './Dashboard';
+import CollectionBoxesPage from './CollectionBoxesPage';
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,6 +19,8 @@ export default function Controller(props){
                 </Route>
                 <Route path="/settings">
                     <Settings />
+                <Route path="/boxes">
+                    <CollectionBoxesPage api={props.api}/>
                 </Route>
                 <Route path="/">
                     <Login />
