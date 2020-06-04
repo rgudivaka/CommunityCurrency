@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Login from './Login';
+import Login from './Login'
+import Settings from './Settings'
 import Dashboard from './Dashboard';
 import CollectionBoxesPage from './CollectionBoxesPage';
 import {
@@ -16,15 +17,16 @@ export default function Controller(props){
                 <Route path="/dashboard">
                     <Dashboard />
                 </Route>
+                <Route path="/settings">
+                    <Settings />
                 <Route path="/boxes">
                     <CollectionBoxesPage api={props.api}/>
                 </Route>
                 <Route path="/">
                     <Login />
                 </Route>
-                
+
             </Switch>
         </Router>
     );
 }
-    

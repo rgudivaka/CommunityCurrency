@@ -10,21 +10,20 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import { Link } from 'react-router-dom';
+import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Orders";
-import Copyright from "./Copyright";
-
-<<<<<<< HEAD
+import Title from "./Title";
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Slider from '@material-ui/core/Slider';
 
 function Copyright() {
   return (
@@ -38,8 +37,6 @@ function Copyright() {
     </Typography>
   );
 }
-=======
->>>>>>> master
 
 const drawerWidth = 240;
 
@@ -49,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+  },
+  textfield:{
+    height: 24,
   },
   toolbarIcon: {
     display: "flex",
@@ -118,13 +118,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   fixedHeight: {
-    height: 240,
+    height: 400,
   },
 }));
 
-export default function Dashboard() {
+export default function Settings() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -132,7 +132,11 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const [value, setValue] = React.useState('Day');
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -160,7 +164,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Settings
           </Typography>
           {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -189,25 +193,90 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+          <Grid container spacing={1}>
+            <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <Title>Account Info</Title>
+                  <Grid container  direction="column" >
+
+                    <Grid container  direction="row" style={{ padding: 5 }}>
+                      <Grid item xs={2}  >
+                        <Typography component="p" variant="h6">
+                          Name:
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={5}>
+                        <TextField id="UserName" size="small" InputProps={{readOnly: true,}} variant="outlined" defaultValue="First Last"/>
+                      </Grid>
+                    </Grid>
+
+                    <Grid container  direction="row" style={{ padding: 5 }}>
+                      <Grid item xs={2} >
+                        <Typography component="p" variant="h6">
+                          Email:
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={3}>
+                        <TextField id="Email" size="small"  variant="outlined" defaultValue="email@gmail.com"/>
+                      </Grid>
+                      <Grid item>
+                        <FormControlLabel value="End" control={<Checkbox color="primary" />} label="Notify Me" labelPlacement="end"/>
+                      </Grid>
+                    </Grid>
+
+                    <Grid container direction="column" >
+                      <Grid item xs={7}>
+                        <Typography id="percent-full" >
+                          At what capcity?
+                        </Typography>
+                        <Slider
+                          defaultValue={50}
+                          aria-labelledby="percent-full"
+                          valueLabelDisplay="auto"
+                          step={10}
+                          marks
+                          min={10}
+                          max={100}
+                          />
+                      </Grid>
+                    </Grid>
+
+                    <Grid container  direction="row" style={{ padding: 5 }}>
+                      <Grid item xs={2} >
+                        <Typography component="p" variant="h6">
+                          Phone Number:
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={3}>
+                        <TextField id="PhoneNum" size="small"  variant="outlined" defaultValue="123-456-7890"/>
+                      </Grid>
+                      <Grid item >
+                        <FormControlLabel value="End" control={<Checkbox color="primary" />} label="Notify Me" labelPlacement="end"/>
+                      </Grid>
+                    </Grid>
+
+                    <Grid container direction="column" >
+                      <Grid item xs={7}>
+                        <Typography id="percent-full" >
+                          At what capcity?
+                        </Typography>
+                        <Slider
+                          defaultValue={50}
+                          aria-labelledby="percent-full"
+                          valueLabelDisplay="auto"
+                          step={10}
+                          marks
+                          min={10}
+                          max={100}
+                          />
+                      </Grid>
+                    </Grid>
+
+
+                  </Grid>
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
+
           </Grid>
           <Box pt={4}>
             <Copyright />

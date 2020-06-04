@@ -4,6 +4,7 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Dashboard from "./Components/Dashboard";
+import Settings from "./Components/Settings";
 import firebase from "firebase";
 import Controller from "./Components/Controller";
 import CommunityCurrencyAPI from "./Shared/CommunityCurrencyAPI";
